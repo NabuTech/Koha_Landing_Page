@@ -1,0 +1,121 @@
+:root {
+    --primary-background-color: #000000; /* Black */
+    --primary-accent-color: #D6AF36; /* Golden Yellow */
+    --secondary-accent-color: #86C445; /* Vibrant Green */
+    --text-color: #FFFFFF; /* White or light gray for text */
+    /* Optional color */
+    --optional-color: #00CED1; /* Aqua/Turquoise */
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: var(--primary-background-color);
+}
+
+p {
+    color: var(--text-color);
+    padding-bottom: 5px;
+    font-family: 'Tuhinga', cursive
+    
+}
+
+.animation-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: space-between;
+}
+
+.profile-pic-container,
+.logo-container,
+.profile-bio-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.profile-pic-container {
+    order: 1;
+}
+
+.logo-container {
+    order: 2;
+}
+
+.profile-bio-container {
+    order: 3;
+}
+
+/* Circular profile pic */
+.profile-pic {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    opacity: 0; /* Initially hidden */
+}
+
+/* Logo spin animation */
+.logo {
+    animation: spin 2s linear forwards;
+}
+
+/* Profile pic scale-in animation */
+.profile-pic.active {
+    animation: scale-in 1.5s ease-in-out forwards;
+}
+
+/* Profile bio slide-in animation */
+.profile-bio {
+    animation: slide-in 8s ease-in-out forwards;
+    animation-delay: 1s; /* Delay the text animation for 2 seconds */
+    transform: translateY(100%); /* Start from outside the view */
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes scale-in {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in {
+    0% {
+        transform: translateY(100%); /* Start from outside the view */
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Media query for screens smaller than 768px (typical mobile screens) */
+@media (max-width: 768px) {
+    .logo-container {
+        padding-top: 20px;
+    }
+    .content-container {
+        padding: 20px;
+    }
+    .profile-pic-container {
+        margin-top: 10px;
+    }
+}
