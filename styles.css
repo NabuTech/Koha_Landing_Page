@@ -9,7 +9,7 @@
 
 body {
     margin: 0;
-    overflow: hidden;
+    overflow: auto;
     background-color: var(--primary-background-color);
 }
 
